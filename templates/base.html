@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+
+  <title>Blog</title>
+</head>
+
+<body>
+  <a href="/" class="main-title">
+    Blog
+  </a>
+
+  <div class="login-area">
+    {% if user %}
+      <nav>
+        <ul>
+          <li>
+            {{user.name}}
+          </li>
+          <li>
+            <a href="/newpost">newpost</a>
+          </li>
+          <li>
+            <a href="/logout">logout</a>
+          </li>
+        </ul>
+      </nav>
+    {% else %}
+      <nav>
+        <ul>
+          <li>
+            <a href="/login">login</a>
+          </li>
+          <li>
+            <a href="/signup">signup</a>
+          </li>
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+
+  <div id="content">
+  {% block content %}
+  {% endblock %}
+  </div>
+</body>
+
+</html>
+
